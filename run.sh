@@ -1,0 +1,1 @@
+./skynet config/config.node1

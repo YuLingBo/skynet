@@ -1,15 +1,29 @@
 include "config.path"
 
 -- preload = "./examples/preload.lua"	-- run preload.lua before every lua service run
+
+-- 启用的工作线程数量，一般配置为CPU核心数
 thread = 8
+
+-- 
 logger = nil
-logpath = "."
+
+-- 日志路径
+logpath = "../log"
+
+-- 主从节点模式
+-- skynet 初期提供了 master/slave 集群模式
+-- 后来提供了更适用的cluster 集群模式 ，配置为0 就是cluster模式
 harbor = 1
 address = "127.0.0.1:2526"
 master = "127.0.0.1:2013"
+
+-- 主服务入口
 start = "main"	-- main script
 bootstrap = "snlua bootstrap"	-- The service for bootstrap
 standalone = "0.0.0.0:2013"
 -- snax_interface_g = "snax_g"
+
+-- 用C 语言编写的服务器模块
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
