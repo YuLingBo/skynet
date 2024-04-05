@@ -17,9 +17,11 @@ skynet.start(function()
 	skynet.name(".launcher", launcher)
 
 	local harbor_id = tonumber(skynet.getenv "harbor" or 0)
-	-- 0 是单节点 1 是多节点模式
+	-- 0 是单节点 1 是多节点模式,启用master/slave 集群模式
 	if harbor_id == 0 then
 		assert(standalone ==  nil)
+
+		-- 判断standalone 确定当前机器是否需要启动master 服务，
 		standalone = true
 		skynet.setenv("standalone", "true")
 

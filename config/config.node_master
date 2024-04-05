@@ -5,6 +5,8 @@ cpath = "./cservice/?.so"
 bootstrap = "snlua bootstrap"
 
 start = "main"
+
+-- 每个节点编号
 harbor = 0
 
 

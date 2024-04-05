@@ -1,1 +1,1 @@
-./skynet config/config.node1
+./skynet examples/config

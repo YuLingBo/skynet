@@ -1,3 +1,5 @@
+-- 配置从节点
+
 include "config.path"
 
 -- preload = "./examples/preload.lua"	-- run preload.lua before every lua service run
@@ -14,21 +16,17 @@ logpath = "../log"
 -- 主从节点模式
 -- skynet 初期提供了 master/slave 集群模式
 -- 后来提供了更适用的cluster 集群模式 ，配置为0 就是cluster模式
-harbor = 1
-address = "127.0.0.1:2526"
+harbor = 2    -- 1号节点
+address = "127.0.0.1:2527"
+
 master = "127.0.0.1:2013"
 
 -- 主服务入口
---[[
-    param:main   就是主函数入口，
-    param:console  可以在console中输入 服务名，直接启动服务
-]]
-start = "console"	-- main script
-
-
+start = "main"	-- main script
 -- start = "testbson"
 bootstrap = "snlua bootstrap"	-- The service for bootstrap
-standalone = "0.0.0.0:2013"
+-- 主节点用到的 地址
+--  standalone = "0.0.0.0:2013"
 -- snax_interface_g = "snax_g"
 
 -- 用C 语言编写的服务器模块

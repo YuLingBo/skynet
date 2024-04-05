@@ -19,13 +19,7 @@ address = "127.0.0.1:2526"
 master = "127.0.0.1:2013"
 
 -- 主服务入口
---[[
-    param:main   就是主函数入口，
-    param:console  可以在console中输入 服务名，直接启动服务
-]]
-start = "console"	-- main script
-
-
+start = "main"	-- main script
 -- start = "testbson"
 bootstrap = "snlua bootstrap"	-- The service for bootstrap
 standalone = "0.0.0.0:2013"

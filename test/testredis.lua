@@ -12,11 +12,12 @@ local function watching()
 	w:subscribe "foo"
 	w:psubscribe "hello.*"
 	while true do
-		print("Watch", w:message())
+		skynet.error("Watch", w:message())
 	end
 end
 
 skynet.start(function()
+	skynet.error("ylb-----------")
 	skynet.fork(watching)
 	local db = redis.connect(conf)
 
@@ -25,8 +26,8 @@ skynet.start(function()
 	db:set("B", "world")
 	db:sadd("C", "one")
 
-	print(db:get("A"))
-	print(db:get("B"))
+	skynet.error(db:get("A"))
+	skynet.error(db:get("B"))
 
 	db:del "D"
 	for i=1,10 do
@@ -34,7 +35,7 @@ skynet.start(function()
 	end
 	local r = db:hvals "D"
 	for k,v in pairs(r) do
-		print(k,v)
+		skynet.error(k,v)
 	end
 
 	db:multi()
@@ -42,17 +43,17 @@ skynet.start(function()
 	db:get "B"
 	local t = db:exec()
 	for k,v in ipairs(t) do
-		print("Exec", v)
+		skynet.error("Exec", v)
 	end
 
-	print(db:exists "A")
-	print(db:get "A")
-	print(db:set("A","hello world"))
-	print(db:get("A"))
-	print(db:sismember("C","one"))
-	print(db:sismember("C","two"))
+	skynet.error(db:exists "A")
+	skynet.error(db:get "A")
+	skynet.error(db:set("A","hello world"))
+	skynet.error(db:get("A"))
+	skynet.error(db:sismember("C","one"))
+	skynet.error(db:sismember("C","two"))
 
-	print("===========publish============")
+	skynet.error("===========publish============")
 
 	for i=1,10 do
 		db:publish("foo", i)
