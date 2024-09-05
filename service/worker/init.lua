@@ -18,7 +18,7 @@ local isworking = false
 local function update(frame)
     if isworking then 
         money = money+1
-        skynet.error(worker_name .. tostring(worker_id) .. ", money: " .. tostring(money))
+        skynet.error("work_nmae" .. worker_name .. tostring(worker_id) .. ", money: " .. tostring(money))
     end
 end
 
