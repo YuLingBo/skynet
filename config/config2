@@ -1,0 +1,17 @@
+include "../examples/config.path"
+
+-- preload = "./examples/preload.lua"  
+-- run preload.lua before every lua service run
+
+thread = 2 
+logger = nil
+logpath = "."
+harbor = 2      --编号需要改
+address = "127.0.0.1:2527"   --改一个跟config1不同的端口
+master = "127.0.0.1:2013"   --主节点地址不变
+start = "console"   -- main script
+bootstrap = "snlua bootstrap"   -- The service for bootstrap
+--standalone = "0.0.0.0:2013" --作为从节点，就注释掉这里
+-- snax_interface_g = "snax_g"
+cpath = root.."cservice/?.so"
+-- daemon = "./skynet.pid"
