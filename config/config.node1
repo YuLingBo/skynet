@@ -14,8 +14,8 @@ harbor = 0
 lualoader = "./lualib/loader.lua"
 
 -- lua 写的服务的路径
--- luaservice = "./service/?/init.lua;" .. "./service/?.lua;"
-luaservice = "./test/?.lua;".."./service/?/init.lua;" .. "./service/?.lua;"
+luaservice = "./service/?.lua;" .. "./service/?/?.lua;"
+
 -- lua 编写的程序库路径
 lua_path = "./etc/?.lua;" .. "./lualib/?.lua;" .. "./lualib/?.lua;" .. "./lualib/?/init.lua;"
 
