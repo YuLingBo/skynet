@@ -5,7 +5,7 @@ local redis = require "skynet.db.redis"
 --local cjson = require "cjson"
 
 
-local function work_service()
+skynet.start(function ()
     skynet.error("[start main ylb] hello world")
 
     -- todo 启动其他服务
@@ -14,8 +14,6 @@ local function work_service()
         2. 其中第二个参数和第三个参数会传递给 。/service/worker/init.lua
             脚本的init() 函数
     ]]
-
-    skynet.newservice("test")
     local worker1 = skynet.newservice("worker","wk",1)
      -- 开始工作
     -- skynet.send("worker","lua","startWorker")
@@ -77,43 +75,5 @@ skynet.start(function ()
     -- 停止工作
     skynet.send(worker1,"lua","stopWorker")
 
-end
-
-local args = {...}
--- 测试  testunique 唯一服务
-local function unique_service()
-    
-    skynet.error("[start main ylb] hello world")
-    --skynet.newservice("testnewservice")
-
-    if #args == 0 then 
-        table.insert(args,"testunique")
-    elseif #args == 1 then
-        table.insert(args,1,"true")
-    end
-
-    local us
-    skynet.error("test uniques service ")
-
-    if #args == 2 and args[1]=="true" then 
-        us = skynet.uniqueservice("true",args[2])
-    else
-        us = skynet.uniqueservice(args[1])
-    end
-
-    skynet.error("testunique address : ",skynet.address(us))
-
-
-end
-
-
-
-skynet.start(function ()
-   
-    -- work_service()
-    -- unique_service()
-
-    -- skynet.newservice("lua_test_assert")
-    skynet.newservice("testSimpleSnax")
-    --skynet.newservice("test")
+    skynet.exit()
 end)
