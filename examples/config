@@ -27,3 +27,5 @@ standalone = "0.0.0.0:2013"
 -- 用C 语言编写的服务器模块
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
+
+lua_path = "./lualib/?.lua;./service/?.lua;./service/?/init.lua"

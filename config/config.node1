@@ -7,7 +7,6 @@ bootstrap = "snlua bootstrap"
 start = "main"
 harbor = 0
 
-
 -- 根据skynet 执行文件 所在的路径
 
 -- lua 加载器
@@ -17,7 +16,10 @@ lualoader = "./lualib/loader.lua"
 luaservice = "./service/?/init.lua;" .. "./service/?.lua;"
 
 -- lua 编写的程序库路径
-lua_path = "./etc/?.lua;" .. "./lualib/?.lua;" .. "./lualib/?.lua;" .. "./lualib/?/init.lua;"
+lua_path = "./etc/?.lua;" 
+           .. "./lualib/?.lua;" 
+           .. "./lualib/?.lua;" 
+           .. "./lualib/?/init.lua;"
 
 -- C语言写的程序路径 
 lua_cpath = "./luaclib/?.so;" .. "./luaclib/?.so"
